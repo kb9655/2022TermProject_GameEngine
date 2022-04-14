@@ -346,6 +346,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/MainCamera.cs"
+"Assets/Map_Source/Low Poly Flat Sci Fi Assets/Demo/Scripts/DoubleSlidingDoorController.cs"
+"Assets/Map_Source/Low Poly Flat Sci Fi Assets/Demo/Scripts/FlickeringLight.cs"
 "Assets/RayScript.cs"
 "Assets/Soldier.cs"
 -langversion:9.0
