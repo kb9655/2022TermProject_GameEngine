@@ -10,11 +10,11 @@ public class MainCamera : MonoBehaviour
     
     public float offsetX = 0f;
     public float offsetY = -3f;
-    public float offsetZ = 4f;
+    public float offsetZ = 5f;
     
     private float xTurn = 0;
     private float yTurn = 0;
-    public float turnSpeed;
+    public float turnSpeed = 3f;
 
     void Awake()
     {

@@ -18,6 +18,7 @@ public class Soldier : MonoBehaviour
     private float verticalMove;
     private bool isJumping;
     private bool isShooting;
+    private float moveSpeed = 0;
     
     private float xTurn = 0;
     public float turnSpeed;
@@ -59,10 +60,18 @@ public class Soldier : MonoBehaviour
         if (horizontalMove == 0 && verticalMove == 0)
         {
             animator.SetBool("isRunning", false);
+            moveSpeed -= (float)0.01;
+            if (moveSpeed < 0)
+                moveSpeed = 0;
+            animator.SetFloat("moveSpeed", moveSpeed);
         }
         else
         {
             animator.SetBool("isRunning", true);
+            moveSpeed += (float)0.01;
+            if (moveSpeed > 1)
+                moveSpeed = 1;
+            animator.SetFloat("moveSpeed", moveSpeed);
         }
 
         if (isShooting == false)
