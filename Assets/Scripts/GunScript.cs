@@ -51,6 +51,7 @@ public class GunScript : MonoBehaviour
 	}
 	void Shot()
 	{
+		Vector3 hitPos = Vector3.zero;
 		aim = FirePosition.transform.position;
 		//aim.y += aimY;
 		Debug.DrawRay(aim, transform.forward * _MaxRange, Color.red, 0.3f);
@@ -60,13 +61,17 @@ public class GunScript : MonoBehaviour
 			if (hit.transform.GetComponent<MeshRenderer>() && hit.transform.GetComponent<CapsuleCollider>())
 				hit.transform.GetComponent<MeshRenderer>().material.color = Color.red;
 		}
+		
+		StartCoroutine( ShotEffect( hitPos ));
 	}
+	
 	IEnumerator ShotEffect( Vector3 hitPos )
 	{
 		_gunAudioPlayer.PlayOneShot(_shotClip);
 
 		yield return new WaitForSeconds(0.03f); 
 	}
+
 	public bool Reload()
 	{
 		if( _eCurState == eSTATE.Reloading ||
