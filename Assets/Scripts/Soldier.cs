@@ -6,7 +6,7 @@ public class Soldier : MonoBehaviour
 {
     public float speed = 10f;
     public float jumpPower = 5f;
-    
+
     public Camera mainCamera;
 
     private Rigidbody rigidbody;
@@ -18,8 +18,7 @@ public class Soldier : MonoBehaviour
     private float verticalMove;
     private bool isJumping;
     private bool isShooting;
-    private float moveSpeed = 0;
-    
+
     private float xTurn = 0;
     public float turnSpeed;
 
@@ -32,7 +31,7 @@ public class Soldier : MonoBehaviour
     void Update()
     {
         xTurn += Input.GetAxis("Mouse X");
-        
+
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
 
@@ -43,14 +42,15 @@ public class Soldier : MonoBehaviour
             isShooting = true;
         else if (Input.GetMouseButtonUp(0))
             isShooting = false;
-        
+
+
         AnimationUpdate();
     }
-    
+
     void FixedUpdate()
     {
         Turn();
-        
+
         Run();
         Jump();
     }
@@ -60,18 +60,10 @@ public class Soldier : MonoBehaviour
         if (horizontalMove == 0 && verticalMove == 0)
         {
             animator.SetBool("isRunning", false);
-            moveSpeed -= (float)0.01;
-            if (moveSpeed < 0)
-                moveSpeed = 0;
-            animator.SetFloat("moveSpeed", moveSpeed);
         }
         else
         {
             animator.SetBool("isRunning", true);
-            moveSpeed += (float)0.01;
-            if (moveSpeed > 1)
-                moveSpeed = 1;
-            animator.SetFloat("moveSpeed", moveSpeed);
         }
 
         if (isShooting == false)
@@ -86,9 +78,9 @@ public class Soldier : MonoBehaviour
 
     private void Jump()
     {
-        if(!isJumping)
+        if (!isJumping)
             return;
-        
+
         rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
 
         isJumping = false;
@@ -96,10 +88,10 @@ public class Soldier : MonoBehaviour
 
     private void Run()
     {
-        heading = mainCamera.transform.localRotation * Vector3.forward;
+        heading = transform.localRotation * Vector3.forward;
         heading.y = 0;
         heading = heading.normalized;
-        
+
         movement = heading * Time.deltaTime * verticalMove * speed;
         movement += Quaternion.Euler(0, 90, 0) * heading * Time.deltaTime * Input.GetAxis("Horizontal") * speed;
 
