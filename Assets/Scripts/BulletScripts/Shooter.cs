@@ -9,6 +9,9 @@ public class Shooter : MonoBehaviour
 
     [SerializeField]
     private GameObject FirePos;
+
+    [SerializeField]
+    private GameObject FireRot;
   
     private Camera mainCam;
 
@@ -39,7 +42,7 @@ public class Shooter : MonoBehaviour
                 var bullet = Instantiate(bulletPrefab).GetComponent<Bullet>();
                 //var direction = new Vector3(this.transform.forward.x, transform.position.y, hitResult.point.z) - transform.position;
                 // bullet.transform.position = direction.normalized;
-                bullet.Shoot(this.transform.forward, FirePos.transform.position, FirePos.transform.rotation);
+                bullet.Shoot(FirePos.transform.forward, FirePos.transform.position, FirePos.transform.rotation);
             isFire = true;
         }
     }

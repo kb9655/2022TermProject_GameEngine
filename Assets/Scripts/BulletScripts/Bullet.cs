@@ -6,6 +6,10 @@ public class Bullet : MonoBehaviour
 {
     private Vector3 direction;
     private Rigidbody rigid;
+
+    [SerializeField]
+    private GameObject colleffect;
+   
     public void Shoot(Vector3 direction , Vector3 pos, Quaternion Rot)
     {
         rigid = GetComponent<Rigidbody>();
@@ -25,7 +29,14 @@ public class Bullet : MonoBehaviour
     {
         if(collision.transform.tag == "Map")
         {
-            Debug.Log("Coll");
+            GameObject obj = Instantiate(colleffect, transform.position, transform.rotation);
+            DestroyBullet();
+            gameObject.SetActive(false);
+        }
+
+        if (collision.transform.tag == "Monster")
+        {
+            GameObject obj = Instantiate(colleffect, transform.position, transform.rotation);
             DestroyBullet();
             gameObject.SetActive(false);
         }
@@ -34,6 +45,6 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigid.AddForce(direction* 5.0f,ForceMode.Impulse);
+        rigid.AddForce(direction * 5.0f,ForceMode.Impulse);
     }
 }
