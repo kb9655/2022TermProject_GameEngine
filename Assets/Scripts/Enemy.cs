@@ -42,6 +42,13 @@ public class Enemy : MonoBehaviour
         }
     }
     
+    public void GetDamage(int damage)
+    {
+        curHealth -= damage;
+        if (curHealth < 0)
+            Destroy(gameObject);
+    }
+
     void Targerting()
     {
         float targetRadious = 1.5f;

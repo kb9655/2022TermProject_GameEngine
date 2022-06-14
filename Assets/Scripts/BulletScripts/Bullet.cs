@@ -37,6 +37,8 @@ public class Bullet : MonoBehaviour
         if (collision.transform.tag == "Monster")
         {
             GameObject obj = Instantiate(colleffect, transform.position, transform.rotation);
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.GetDamage(20);
             DestroyBullet();
             gameObject.SetActive(false);
         }
