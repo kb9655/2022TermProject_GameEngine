@@ -21,11 +21,21 @@ public class Soldier : MonoBehaviour
 
     private float xTurn = 0;
     public float turnSpeed;
+    private bool isKey = true;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag == "Lock" && isKey)
+        {
+            DoorLock dl = other.gameObject.GetComponent<DoorLock>();
+            dl.Open();
+            setKey(false);
+        }
     }
 
     void Update()
@@ -101,5 +111,14 @@ public class Soldier : MonoBehaviour
     void Turn()
     {
         transform.rotation = Quaternion.Euler(0, xTurn * turnSpeed, 0);
+    }
+
+    public void setKey(bool b_key)
+    {
+        isKey = b_key;
+    }
+    public bool getKey()
+    {
+        return isKey;
     }
 }

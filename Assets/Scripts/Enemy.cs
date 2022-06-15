@@ -5,10 +5,11 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public int maxHealth;
-    public int curHealth;
+    public int maxHealth = 100;
+    public int curHealth = 100;
     public bool isChase;
     public bool isAttack;
+    public bool isKey = false;
     public BoxCollider meleeArea;
     [SerializeField]
     public Transform target;
@@ -17,6 +18,8 @@ public class Enemy : MonoBehaviour
     NavMeshAgent nav;
     Rigidbody rigid;
     Animator anim;
+
+    public bool isAwake = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,10 +38,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nav.SetDestination(target.position);  //도착할 목표 위치 지정 함수
-        if (isChase)
+        if (isAwake)
         {
-            nav.SetDestination(target.position);
+            nav.SetDestination(target.position);  //도착할 목표 위치 지정 함수
+            if (isChase)
+            {
+                nav.SetDestination(target.position);
+            }
         }
     }
     
@@ -46,7 +52,15 @@ public class Enemy : MonoBehaviour
     {
         curHealth -= damage;
         if (curHealth < 0)
+        {
+            if (isKey)
+            {
+                Soldier s = GameObject.FindGameObjectWithTag("Player").GetComponent<Soldier>();
+                s.setKey(true);
+            }
             Destroy(gameObject);
+
+        }
     }
 
     void Targerting()

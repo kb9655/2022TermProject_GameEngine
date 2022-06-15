@@ -38,9 +38,12 @@ public class Bullet : MonoBehaviour
         {
             GameObject obj = Instantiate(colleffect, transform.position, transform.rotation);
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.GetDamage(20);
-            DestroyBullet();
-            gameObject.SetActive(false);
+            if (enemy.isAwake)
+            {
+                enemy.GetDamage(20);
+            }
+                DestroyBullet();
+                gameObject.SetActive(false);
         }
     }
 
