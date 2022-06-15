@@ -43,6 +43,7 @@ public class Soldier : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
             isShooting = false;
         
+        
         AnimationUpdate();
     }
     
@@ -87,7 +88,7 @@ public class Soldier : MonoBehaviour
 
     private void Run()
     {
-        heading = mainCamera.transform.localRotation * Vector3.forward;
+        heading = transform.localRotation * Vector3.forward;
         heading.y = 0;
         heading = heading.normalized;
         
