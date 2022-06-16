@@ -3,16 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Map
+  - Monster
+  - Enemy
+  - Lock
+  - Card1
+  - Card2
+  - Card4
+  - Card3
+  - Card5
+  - Password
+  - RunMonster
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - Map
+  - Monster
   - 
   - 
   - 
