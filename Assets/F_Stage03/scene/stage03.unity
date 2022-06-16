@@ -3326,6 +3326,7 @@ GameObject:
   - component: {fileID: 507481197}
   - component: {fileID: 507481196}
   - component: {fileID: 507481195}
+  - component: {fileID: 507481199}
   m_Layer: 0
   m_Name: MoveToOtherScene
   m_TagString: Untagged
@@ -3411,6 +3412,18 @@ Transform:
   m_Father: {fileID: 888047685}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &507481199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507481193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2540620751063944ba553b8a5eb63d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &509710696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5398141216205333710, guid: ab0e7523a31ce09419e2f39bd38097b5,
@@ -15800,6 +15813,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_DynamicOccludee
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090770253512400567, guid: 67cd30369c77f724e923750f2568c90b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -38.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090770255406951815, guid: 67cd30369c77f724e923750f2568c90b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091057918410349757, guid: 67cd30369c77f724e923750f2568c90b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -34.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091057918782733017, guid: 67cd30369c77f724e923750f2568c90b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.56
       objectReference: {fileID: 0}
     - target: {fileID: 3092071749850806784, guid: 67cd30369c77f724e923750f2568c90b,
         type: 3}
