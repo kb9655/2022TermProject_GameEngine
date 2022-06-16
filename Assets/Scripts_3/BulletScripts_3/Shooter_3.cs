@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shooter_3 : MonoBehaviour
@@ -9,6 +7,9 @@ public class Shooter_3 : MonoBehaviour
    
     [SerializeField]
     private GameObject bulletPrefab1;
+
+    [SerializeField] 
+    private GameObject bulletPrefab2;
     
     [SerializeField]
     private GameObject FirePos;
@@ -44,8 +45,7 @@ public class Shooter_3 : MonoBehaviour
                 bullet.Shoot(FirePos.transform.forward, FirePos.transform.position, FirePos.transform.rotation);
                 isFire = true;
             }
-
-            if (flag == 1)
+            else if (flag == 1)
             {
                 var bullet = Instantiate(bulletPrefab1).GetComponent<Bullet_3>();
                 //var direction = new Vector3(this.transform.forward.x, transform.position.y, hitResult.point.z) - transform.position;
@@ -53,15 +53,15 @@ public class Shooter_3 : MonoBehaviour
                 bullet.Shoot(FirePos.transform.forward, FirePos.transform.position, FirePos.transform.rotation);
                 isFire = true;
             }
+            else if (flag == 2)
+            {
+                var bullet = Instantiate(bulletPrefab2).GetComponent<Bullet_3>();
+                //var direction = new Vector3(this.transform.forward.x, transform.position.y, hitResult.point.z) - transform.position;
+                // bullet.transform.position = direction.normalized;
+                bullet.Shoot(FirePos.transform.forward, FirePos.transform.position, FirePos.transform.rotation);
+                isFire = true;
+            }
             
-            RaycastHit hitResult;
-            //if (Physics.Raycast(mainCam.ScreenPointToRay(transform.forwar), out hitResult))
-            //{
-            //    var bullet = Instantiate(bulletPrefab).GetComponent<Bullet>();
-            //    var direction = new Vector3(hitResult.point.x, transform.position.y, hitResult.point.z) - transform.position;
-            //   // bullet.transform.position = direction.normalized;
-            //    bullet.Shoot(direction.normalized, FirePos.transform.position);
-            //}
 
           
         }

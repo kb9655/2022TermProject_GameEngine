@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AwakeMonsterLever_3 : MonoBehaviour
+public class ActiveMonsters_3 : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] AwakeMonster;
@@ -9,15 +9,18 @@ public class AwakeMonsterLever_3 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            AwakeMonsters();
+            ActiveMonsters();
         }
     }
-    private void AwakeMonsters()
+    private void ActiveMonsters()
     {
         for(int i = 0; i < AwakeMonster.Length; ++i)
         {
-            Enemy_3 enemy = AwakeMonster[i].GetComponent<Enemy_3>();
-            enemy.isAwake = true;
+            AwakeMonster[i].SetActive(true);
+            //  Enemy_3 enemy = AwakeMonster[i].GetComponent<Enemy_3>();
+           // enemy.isAwake = true;
         }
     }
 }
+
+

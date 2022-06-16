@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class MonsterAwake_3 : MonoBehaviour
@@ -15,6 +14,7 @@ public class MonsterAwake_3 : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             AwakeMonsters();
+            this.gameObject.SetActive(false);
         }
     }
 
